@@ -9,8 +9,8 @@ def display_clouds_matrix(source, target, matrix):
     o3d.visualization.draw_geometries([source,target])
 
 tranformation = np.identity(4)
-target = o3d.io.read_point_cloud("data/2.ply")
-source = o3d.io.read_point_cloud("data/1.ply")
+target = o3d.io.read_point_cloud("data/rs02.ply")
+source = o3d.io.read_point_cloud("data/rs01.ply")
 
 display_clouds_matrix(source,target,tranformation)
 
