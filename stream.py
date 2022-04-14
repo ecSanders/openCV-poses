@@ -88,12 +88,12 @@ try:
         # mPoints[3,2] = 0
         nx = 8
         ny = 7
-        ret, corners = cv2.findChessboardCorners(cv2.cvtColor(color_image, cv2.COLOR_RGB2GRAY), (nx, ny), None)
+        # ret, corners = cv2.findChessboardCorners(cv2.cvtColor(color_image, cv2.COLOR_RGB2GRAY), (nx, ny), None)
         
-        if ret == True:
-            cv2.drawChessboardCorners(color_image, (nx, ny), corners, ret)
-        else:
-            print(ret)
+        # if ret == True:
+        #     cv2.drawChessboardCorners(color_image, (nx, ny), corners, ret)
+        # else:
+        #     print(ret)
 
 
         camera_matrix = np.array([[667.496, 0, 472.685],
