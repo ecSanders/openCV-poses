@@ -76,7 +76,7 @@ def refine_registration(source, target, source_fpfh, target_fpfh, voxel_size):
         o3d.pipelines.registration.TransformationEstimationPointToPlane())
     return result
 
-voxel_size = 0.05  # means 5cm for this dataset
+voxel_size = 0.0005  # means 5cm for this dataset
 source, target, source_down, target_down, source_fpfh, target_fpfh = prepare_dataset(
     voxel_size)
 
