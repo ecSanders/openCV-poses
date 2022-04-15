@@ -37,7 +37,7 @@ def prepare_dataset(voxel_size):
 
     demo_icp_pcds = o3d.data.DemoICPPointClouds()
     source = o3d.io.read_point_cloud('data/cloud/exp01.ply')
-    target = o3d.io.read_point_cloud('data/cloud/exp01.ply')
+    target = o3d.io.read_point_cloud('data/cloud/exp02.ply')
     trans_init = np.asarray([[0.0, 0.0, 1.0, 0.0], [1.0, 0.0, 0.0, 0.0],
                              [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1.0]])
     source.transform(trans_init)
