@@ -36,8 +36,8 @@ def prepare_dataset(voxel_size):
     print(":: Load two point clouds and disturb initial pose.")
 
     demo_icp_pcds = o3d.data.DemoICPPointClouds()
-    source = o3d.io.read_point_cloud('data/1.ply')
-    target = o3d.io.read_point_cloud('data/2.ply')
+    source = o3d.io.read_point_cloud('data/cloud/exp01.ply')
+    target = o3d.io.read_point_cloud('data/cloud/exp01.ply')
     trans_init = np.asarray([[0.0, 0.0, 1.0, 0.0], [1.0, 0.0, 0.0, 0.0],
                              [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1.0]])
     source.transform(trans_init)
@@ -76,18 +76,18 @@ def refine_registration(source, target, source_fpfh, target_fpfh, voxel_size):
         o3d.pipelines.registration.TransformationEstimationPointToPlane())
     return result
 
-voxel_size = 0.0005  # means 5cm for this dataset
+voxel_size = 0.008  # means 5cm for this dataset
 source, target, source_down, target_down, source_fpfh, target_fpfh = prepare_dataset(
     voxel_size)
 
 result_ransac = execute_global_registration(source_down, target_down,
                                             source_fpfh, target_fpfh,
                                             voxel_size)
-print(result_ransac.transformation)
+print(f'rotation and translation matix: \n {result_ransac.transformation}')
 draw_registration_result(source_down, target_down, result_ransac.transformation)
 
 result_icp = refine_registration(source, target, source_fpfh, target_fpfh,
                                  voxel_size)
 
-print(result_icp.transformation)
+print(f'rotation and translation matix: \n {result_icp.transformation}')
 draw_registration_result(source, target, result_icp.transformation)
