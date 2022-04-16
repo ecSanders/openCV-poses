@@ -30,7 +30,7 @@ def get_image():
 
     align = rs.align(rs.stream.depth)
 
-    # skip the fist Frames
+    # skip the first Frames
     for i in range(10):
         # Get frameset of color and depth
         frames = pipeline.wait_for_frames()
@@ -59,6 +59,9 @@ def get_image():
     # Stop pipeline
     pipeline.stop()
     return color, vertices
+
+
+
 
 color_image, verts = get_image()
 
