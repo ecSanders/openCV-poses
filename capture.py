@@ -27,4 +27,4 @@ frames = pipeline.wait_for_frames()
 
 color_frame = frames.get_color_frame()
 color_image = np.asanyarray(color_frame.get_data())
-cv2.imwrite('rect01.png', color_image)
+cv2.imwrite('data/conversion/rgb.png', color_image)
