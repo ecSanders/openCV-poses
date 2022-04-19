@@ -7,4 +7,4 @@ pcd01 = o3d.io.read_point_cloud("data/cloud/reshaped_roi.ply")
 pcd02 = o3d.io.read_point_cloud("data/cloud/reshaped_verts.ply")
 
 
-o3d.visualization.draw_geometries([pcd01])
+o3d.visualization.draw_geometries([pcd01, pcd02])
