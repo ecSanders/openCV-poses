@@ -76,18 +76,18 @@ def refine_registration(source, target, source_fpfh, target_fpfh, voxel_size):
         o3d.pipelines.registration.TransformationEstimationPointToPlane())
     return result
 
-voxel_size = 0.008  # means 5cm for this dataset
+voxel_size = 0.1  # means 5cm for this dataset
 source, target, source_down, target_down, source_fpfh, target_fpfh = prepare_dataset(
     voxel_size)
 
 result_ransac = execute_global_registration(source_down, target_down,
                                             source_fpfh, target_fpfh,
                                             voxel_size)
-print(f'rotation and translation matix: \n {result_ransac.transformation}')
+print(f'rotation and translation matrix: \n {result_ransac.transformation}')
 draw_registration_result(source_down, target_down, result_ransac.transformation)
 
 result_icp = refine_registration(source, target, source_fpfh, target_fpfh,
                                  voxel_size)
 
-print(f'rotation and translation matix: \n {result_icp.transformation}')
+print(f'rotation and translation matrix: \n {result_icp.transformation}')
 draw_registration_result(source, target, result_icp.transformation)
